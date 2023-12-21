@@ -32,21 +32,20 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
-
-class Post(models.Model):
-    author = models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='articles/')
-    text = models.TextField()
-    category = models.ForeignKey(
-        Category,
-        related_name="post",
-        on_delete=models.SET_NULL,
-        null=True
-    )
-    tags = models.ManyToManyField(Tag, related_name="post")
-    create_at = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=200, unique=True)
+    class Post(models.Model):
+        author = models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE)
+        title = models.CharField(max_length=200)
+        image = models.ImageField(upload_to='articles/')
+        text = models.TextField()
+        category = models.ForeignKey(
+            Category,
+            related_name="post",
+            on_delete=models.SET_NULL,
+            null=True
+        )
+        tags = models.ManyToManyField(Tag, related_name="post")
+        create_at = models.DateTimeField(auto_now_add=True)
+        slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
         return self.title

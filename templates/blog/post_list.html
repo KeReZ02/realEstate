@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -8,10 +9,10 @@
           <div class="row">
             <div class="col-lg-8 col-md-8">
               <div class="breadcrumb__text">
-                <h2>Categories: <span>{{ post_list.first.category.name }}</span></h2>
+                <h2>Категории: <span>{{ post_list.first.category.name }}</span></h2>
                 <div class="breadcrumb__option">
-                  <a href="#">Home</a>
-                  <span>Recipes</span>
+                  <a href="#">Главная</a>
+                  <span>Посты</span>
                 </div>
               </div>
               <div class="row">
@@ -30,8 +31,8 @@
                         <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                         <ul class="post__widget">
                           <li>by <span>{{ post.author }}</span></li>
-                          <li>3 min read</li>
-                          <li>20 Comment</li>
+                          <li>3 мин назад</li>
+                          <li>20 Комментариев</li>
                         </ul>
                         <p>{{ post.text|slice:":250" }}</p>
                       </div>
